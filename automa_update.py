@@ -83,7 +83,7 @@ while True:
             if eth > 0.002:
                 upbit.sell_market_order("KRW-ETH", eth*0.999)
                 print("Sold your Asset!")
-        time.sleep(86400)
+        time.sleep(3600)
     except Exception as e:
         print(e)
-        time.sleep(86400)
+        time.sleep(3600)
