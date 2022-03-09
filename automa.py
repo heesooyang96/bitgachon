@@ -56,11 +56,11 @@ while True:
         ma10=get_ma10("KRW-ETH")
         ma20=get_ma20("KRW-ETH")
         ma30=get_ma30("KRW-ETH")
-        if ma10 > ma20 and current_price > ma30:
+        if ma10 > ma20 and current_price > ma20:
             print("Golden Cross observed")
             if krw > 5000:
                 print("Now is 59bun and Golden Cross appeared so...")
-                upbit.buy_market_order("KRW-ETH", krw*0.99)
+                upbit.buy_market_order("KRW-ETH", krw*0.999)
                 current_price = get_current_price("KRW-ETH")
                 krw = get_balance("KRW")
                 eth = get_balance("KRW-ETH")
@@ -69,7 +69,7 @@ while True:
                 print("MA10 is:",ma10)
                 print("MA20 is:",ma20)
                 print("Now Your balance and amount of asset is:",krw,eth)
-        if ma20 > ma10:
+        if ma20 < current_price:
             print("Dead Cross obeserved")
             print("Now is 59bun and Dead Cross appeared so...")
             current_price = get_current_price("KRW-ETH")
@@ -80,7 +80,7 @@ while True:
             print("Dead Cross now:",current_price)
             print("Now Your balance and amount of asset is:",krw,eth)
             if eth > 0.002:
-                upbit.sell_market_order("KRW-ETH", eth*0.99)
+                upbit.sell_market_order("KRW-ETH", eth*0.999)
                 print("Sold your Asset!")
         time.sleep(3600)
     except Exception as e:
