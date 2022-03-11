@@ -69,7 +69,7 @@ while True:
                 print("MA10 is:",ma10)
                 print("MA20 is:",ma20)
                 print("Now Your balance and amount of asset is:",krw,eth)
-        if ma20 < current_price:
+        if ma20 > current_price:
             print("Dead Cross obeserved")
             print("Now is 59bun and Dead Cross appeared so...")
             current_price = get_current_price("KRW-ETH")
